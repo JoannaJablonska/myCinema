@@ -6,7 +6,7 @@ import java.util.List;
 
 import org.mapstruct.Mapper;
 
-import pl.training.mycinema.domain.movie.Movie;
+import pl.training.mycinema.domain.movie.model.Movie;
 
 @Mapper(componentModel = SPRING)
 public interface MovieEntityMapper {
@@ -14,4 +14,6 @@ public interface MovieEntityMapper {
 	List<Movie> toMultipleMovies(Iterable<MovieEntity> movies);
 
 	List<MovieEntity> toEntities(List<Movie> movies);
+
+	MovieEntity toEntity(Movie movie);
 }

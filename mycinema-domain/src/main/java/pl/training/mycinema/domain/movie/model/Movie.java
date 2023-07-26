@@ -1,4 +1,4 @@
-package pl.training.mycinema.domain.movie;
+package pl.training.mycinema.domain.movie.model;
 
 import java.time.Duration;
 

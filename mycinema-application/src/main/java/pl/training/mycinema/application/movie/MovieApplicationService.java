@@ -3,8 +3,8 @@ package pl.training.mycinema.application.movie;
 import java.util.List;
 
 import lombok.RequiredArgsConstructor;
-import pl.training.mycinema.domain.movie.Movie;
-import pl.training.mycinema.domain.movie.MovieRepository;
+import pl.training.mycinema.domain.movie.model.Movie;
+import pl.training.mycinema.domain.movie.repositories.MovieRepository;
 
 @RequiredArgsConstructor
 public class MovieApplicationService {
