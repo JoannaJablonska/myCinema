@@ -4,5 +4,6 @@ public enum DiscountType {
 
 	CHILDREN,
 
-	SENIOR
+	SENIOR,
+	NORMAL
 }

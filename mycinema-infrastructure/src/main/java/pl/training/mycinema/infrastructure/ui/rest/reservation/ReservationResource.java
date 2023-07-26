@@ -18,9 +18,11 @@ public class ReservationResource {
 
 	private final ReserveSeatsCommandHandler reserveSeatsCommandHandler;
 
+	private final PresentationalReservationMapper presentationalReservationMapper;
+
 	@PostMapping
-	public ResponseEntity<Reservation> reserveSeats(@RequestBody ReserveSeatsCommand reserveSeatsCommand) {
+	public ResponseEntity<PresentationalReservation> reserveSeats(@RequestBody ReserveSeatsCommand reserveSeatsCommand) {
 		final Reservation reservation = reserveSeatsCommandHandler.handle(reserveSeatsCommand);
-		return ResponseEntity.ok(reservation);
+		return ResponseEntity.ok(presentationalReservationMapper.toPresentational(reservation));
 	}
 }

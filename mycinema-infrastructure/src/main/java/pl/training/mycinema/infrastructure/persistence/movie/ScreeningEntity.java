@@ -4,11 +4,7 @@ import java.time.LocalDateTime;
 import java.util.List;
 import java.util.UUID;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.FetchType;
-import jakarta.persistence.Id;
-import jakarta.persistence.OneToMany;
-import jakarta.persistence.OneToOne;
+import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -20,11 +16,11 @@ public class ScreeningEntity {
 	@Id
 	String id = UUID.randomUUID().toString();
 
-	@OneToOne
+	@OneToOne(cascade=CascadeType.ALL)
 	MovieEntity movie;
 
 	LocalDateTime time;
 
-	@OneToMany(fetch = FetchType.LAZY)
+	@OneToMany(fetch = FetchType.EAGER, mappedBy = "screening", cascade = CascadeType.ALL)
 	List<SeatEntity> seats;
 }

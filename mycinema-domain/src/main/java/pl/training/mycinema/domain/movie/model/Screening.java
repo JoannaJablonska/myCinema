@@ -21,6 +21,6 @@ public class Screening {
 	}
 
 	private static boolean isPresent(final Seat currentSeat, final Seat seat) {
-		return seat.getRow() == currentSeat.getRow() && seat.getColumn() == currentSeat.getColumn();
+		return seat.getRowNo() == currentSeat.getRowNo() && seat.getColumnNo() == currentSeat.getColumnNo();
 	}
 }

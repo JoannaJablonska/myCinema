@@ -2,10 +2,12 @@ package pl.training.mycinema.infrastructure.persistence.movie;
 
 import java.util.UUID;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
+import org.hibernate.annotations.NotFound;
+import org.hibernate.annotations.NotFoundAction;
 
 @Entity(name = "Seat")
 @Getter
@@ -22,4 +24,9 @@ public class SeatEntity {
 	int hallNo;
 
 	boolean isAvailable;
+
+	@ManyToOne(fetch = FetchType.EAGER)
+	@NotFound(action = NotFoundAction.IGNORE)
+	@JoinColumn(name = "screeningId")
+	ScreeningEntity screening;
 }

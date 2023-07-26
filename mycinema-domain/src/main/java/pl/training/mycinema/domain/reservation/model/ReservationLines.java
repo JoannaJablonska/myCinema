@@ -1,11 +1,14 @@
 package pl.training.mycinema.domain.reservation.model;
 
-import lombok.Value;
+import lombok.*;
 
-@Value
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
 public class ReservationLines {
 
 	Seat seat;
 
-	DiscountType discountType;
+	DiscountType discountType = DiscountType.NORMAL;
 }
