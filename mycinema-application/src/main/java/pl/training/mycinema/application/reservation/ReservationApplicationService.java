@@ -63,7 +63,7 @@ public class ReservationApplicationService {
 
 		reservationRepository.save(reservation);
 
-		return null;
+		return reservation;
 	}
 
 	public Optional<Reservation> getReservationById(final String id) {

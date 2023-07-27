@@ -7,6 +7,8 @@ import lombok.Value;
 @Value
 public class PresentationalReservation {
 
+	String id;
+
 	PresentationalScreening screening;
 
 	List<PresentationalReservationLines> reservationLines;
