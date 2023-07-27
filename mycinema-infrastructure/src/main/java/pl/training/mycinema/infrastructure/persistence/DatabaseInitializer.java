@@ -20,7 +20,6 @@ import pl.training.mycinema.infrastructure.persistence.movie.JpaMovieRepository;
 import pl.training.mycinema.infrastructure.persistence.movie.JpaScreeningRepository;
 import pl.training.mycinema.infrastructure.persistence.movie.JpaSeatRepository;
 import pl.training.mycinema.infrastructure.persistence.movie.MovieEntityMapper;
-import pl.training.mycinema.infrastructure.persistence.movie.ScreeningEntity;
 import pl.training.mycinema.infrastructure.persistence.movie.ScreeningEntityMapper;
 
 @Transactional
@@ -55,12 +54,12 @@ public class DatabaseInitializer implements ApplicationRunner {
 		final var movies = asList(bladeRunner, oppenheimer);
 
 		final List<Seat> seatsForBladeRunner = asList(
-				Seat.builder().id(UUID.randomUUID().toString()).rowNo(1).columnNo(1).hallNo(1).isAvailable(true).build(),
-				Seat.builder().id(UUID.randomUUID().toString()).rowNo(1).columnNo(2).hallNo(1).isAvailable(true).build(),
-				Seat.builder().id(UUID.randomUUID().toString()).rowNo(1).columnNo(3).hallNo(1).isAvailable(true).build(),
-				Seat.builder().id(UUID.randomUUID().toString()).rowNo(2).columnNo(1).hallNo(1).isAvailable(true).build(),
-				Seat.builder().id(UUID.randomUUID().toString()).rowNo(2).columnNo(2).hallNo(1).isAvailable(true).build(),
-				Seat.builder().id(UUID.randomUUID().toString()).rowNo(2).columnNo(3).hallNo(1).isAvailable(true).build()
+				Seat.builder().id(UUID.randomUUID().toString()).rowNo(1).columnNo(1).hallNo(1).available(true).build(),
+				Seat.builder().id(UUID.randomUUID().toString()).rowNo(1).columnNo(2).hallNo(1).available(true).build(),
+				Seat.builder().id(UUID.randomUUID().toString()).rowNo(1).columnNo(3).hallNo(1).available(true).build(),
+				Seat.builder().id(UUID.randomUUID().toString()).rowNo(2).columnNo(1).hallNo(1).available(true).build(),
+				Seat.builder().id(UUID.randomUUID().toString()).rowNo(2).columnNo(2).hallNo(1).available(true).build(),
+				Seat.builder().id(UUID.randomUUID().toString()).rowNo(2).columnNo(3).hallNo(1).available(true).build()
 		);
 
 		final var screenings = asList(

@@ -13,6 +13,7 @@ Accept: application/json
   "time": "2023-07-30T12:30:00.000Z",
   "reservationLines": [
     {
+
       "seat": {
         "rowNo": 1,
         "columnNo": 1,
@@ -25,6 +26,6 @@ Accept: application/json
 
 ###
 
-GET http://localhost:8080/reservation/f38fe94a-b51c-4e2d-998b-1c33104ce100
+GET http://localhost:8080/reservation/0b84ae80-c955-45eb-b2ec-23979c916237
 Content-Type: application/json
 Accept: application/json

@@ -19,5 +19,5 @@ public class SeatEntity {
 
 	int hallNo;
 
-	boolean isAvailable;
+	boolean available;
 }

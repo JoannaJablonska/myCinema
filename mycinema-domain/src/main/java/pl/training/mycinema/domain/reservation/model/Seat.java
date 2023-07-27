@@ -3,10 +3,6 @@ package pl.training.mycinema.domain.reservation.model;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
-import lombok.EqualsAndHashCode;
-import lombok.Getter;
-import lombok.Setter;
-import lombok.ToString;
 
 @Data
 @Builder
@@ -22,5 +18,5 @@ public class Seat {
 	private int hallNo;
 
 //	@Setter
-	private boolean isAvailable;
+	private boolean available;
 }
