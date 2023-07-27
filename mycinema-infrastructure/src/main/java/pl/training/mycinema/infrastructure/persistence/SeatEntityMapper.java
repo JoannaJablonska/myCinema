@@ -13,4 +13,6 @@ import pl.training.mycinema.infrastructure.persistence.movie.SeatEntity;
 public interface SeatEntityMapper {
 
 	List<SeatEntity> toEntities(final List<Seat> seats);
+
+    Seat toSeat(SeatEntity seatEntity);
 }

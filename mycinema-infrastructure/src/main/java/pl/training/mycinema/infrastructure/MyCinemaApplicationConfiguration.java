@@ -1,6 +1,5 @@
 package pl.training.mycinema.infrastructure;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
@@ -10,9 +9,11 @@ import pl.training.mycinema.application.inputs.commands.ReserveSeatsCommandHandl
 import pl.training.mycinema.application.inputs.queries.GetMovieCatalogQueryHandler;
 import pl.training.mycinema.application.inputs.queries.GetReservationQueryHandler;
 import pl.training.mycinema.application.inputs.queries.GetScreeningsQueryHandler;
+import pl.training.mycinema.application.inputs.queries.GetSeatsQueryHandler;
 import pl.training.mycinema.application.movie.MovieApplicationService;
 import pl.training.mycinema.application.reservation.ReservationApplicationService;
 import pl.training.mycinema.application.screening.ScreeningApplicationService;
+import pl.training.mycinema.application.seat.SeatApplicationService;
 import pl.training.mycinema.domain.movie.repositories.MovieRepository;
 import pl.training.mycinema.domain.movie.repositories.ScreeningRepository;
 import pl.training.mycinema.domain.reservation.repositories.ReservationRepository;
@@ -23,6 +24,11 @@ public class MyCinemaApplicationConfiguration {
 	@Bean
 	public MovieApplicationService movieApplicationService(final MovieRepository repository) {
 		return new MovieApplicationService(repository);
+	}
+
+	@Bean
+	public SeatApplicationService seatApplicationService(final ScreeningRepository repository) {
+		return new SeatApplicationService(repository);
 	}
 
 	@Bean
@@ -64,5 +70,10 @@ public class MyCinemaApplicationConfiguration {
 	@Bean
 	public GetScreeningsQueryHandler getScreeningsQueryHandler(final ScreeningApplicationService screeningApplicationService) {
 		return new GetScreeningsQueryHandler(screeningApplicationService);
+	}
+
+	@Bean
+	public GetSeatsQueryHandler getSeatsQueryHandler(final SeatApplicationService seatApplicationService) {
+		return new GetSeatsQueryHandler(seatApplicationService);
 	}
 }
