@@ -54,12 +54,12 @@ public class DatabaseInitializer implements ApplicationRunner {
 		final var movies = asList(bladeRunner, oppenheimer);
 
 		final List<Seat> seatsForBladeRunner = asList(
-				Seat.builder().id(UUID.randomUUID().toString()).rowNo(1).columnNo(1).hallNo(1).available(true).build(),
-				Seat.builder().id(UUID.randomUUID().toString()).rowNo(1).columnNo(2).hallNo(1).available(true).build(),
-				Seat.builder().id(UUID.randomUUID().toString()).rowNo(1).columnNo(3).hallNo(1).available(true).build(),
-				Seat.builder().id(UUID.randomUUID().toString()).rowNo(2).columnNo(1).hallNo(1).available(true).build(),
-				Seat.builder().id(UUID.randomUUID().toString()).rowNo(2).columnNo(2).hallNo(1).available(true).build(),
-				Seat.builder().id(UUID.randomUUID().toString()).rowNo(2).columnNo(3).hallNo(1).available(true).build()
+				Seat.builder().id(UUID.randomUUID().toString()).rowNo(1).columnNo(1).hallNo(1).available(true).price(25.00).build(),
+				Seat.builder().id(UUID.randomUUID().toString()).rowNo(1).columnNo(2).hallNo(1).available(true).price(25.00).build(),
+				Seat.builder().id(UUID.randomUUID().toString()).rowNo(1).columnNo(3).hallNo(1).available(true).price(25.00).build(),
+				Seat.builder().id(UUID.randomUUID().toString()).rowNo(2).columnNo(1).hallNo(1).available(true).price(25.00).build(),
+				Seat.builder().id(UUID.randomUUID().toString()).rowNo(2).columnNo(2).hallNo(1).available(true).price(25.00).build(),
+				Seat.builder().id(UUID.randomUUID().toString()).rowNo(2).columnNo(3).hallNo(1).available(true).price(50.00).build()
 		);
 
 		final var screenings = asList(

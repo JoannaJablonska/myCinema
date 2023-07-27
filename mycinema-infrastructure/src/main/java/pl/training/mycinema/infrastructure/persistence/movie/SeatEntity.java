@@ -20,4 +20,6 @@ public class SeatEntity {
 	int hallNo;
 
 	boolean available;
+
+	double price;
 }

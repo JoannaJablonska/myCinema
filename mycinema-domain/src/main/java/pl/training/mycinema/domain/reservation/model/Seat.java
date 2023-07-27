@@ -24,4 +24,6 @@ public class Seat {
 
 	@Setter
 	private boolean available;
+
+	private double price;
 }

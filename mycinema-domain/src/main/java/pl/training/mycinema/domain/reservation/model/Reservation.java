@@ -3,10 +3,14 @@ package pl.training.mycinema.domain.reservation.model;
 import java.util.List;
 
 import lombok.Builder;
-import lombok.Value;
+import lombok.EqualsAndHashCode;
+import lombok.Getter;
+import lombok.ToString;
 import pl.training.mycinema.domain.movie.model.Screening;
 
-@Value
+@Getter
+@EqualsAndHashCode
+@ToString
 @Builder
 public class Reservation {
 
@@ -17,4 +21,16 @@ public class Reservation {
 	List<ReservationLine> reservationLines;
 
 	boolean isPaid = false;
+
+	double totalPrice;
+
+	public void calculateTotalPrice() {
+		totalPrice = reservationLines.stream()
+				.mapToDouble(this::calculateLinePrice)
+				.sum();
+	}
+
+	private double calculateLinePrice(final ReservationLine line) {
+		return line.getDiscountType().getDiscountPercentage() * line.getSeat().getPrice() / 100.00;
+	}
 }

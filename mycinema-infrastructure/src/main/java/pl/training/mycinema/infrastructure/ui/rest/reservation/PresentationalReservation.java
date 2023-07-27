@@ -12,4 +12,6 @@ public class PresentationalReservation {
 	PresentationalScreening screening;
 
 	List<PresentationalReservationLines> reservationLines;
+
+	double totalPrice;
 }

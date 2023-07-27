@@ -61,6 +61,8 @@ public class ReservationApplicationService {
 				.reservationLines(processedReservationLines)
 				.build();
 
+		reservation.calculateTotalPrice();
+
 		reservationRepository.save(reservation);
 
 		return reservation;
