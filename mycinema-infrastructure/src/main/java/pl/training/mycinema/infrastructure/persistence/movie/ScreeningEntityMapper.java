@@ -5,7 +5,6 @@ import static org.mapstruct.MappingConstants.ComponentModel.SPRING;
 import java.util.List;
 
 import org.mapstruct.Mapper;
-import org.mapstruct.Mapping;
 
 import pl.training.mycinema.domain.movie.model.Screening;
 import pl.training.mycinema.infrastructure.persistence.SeatEntityMapper;

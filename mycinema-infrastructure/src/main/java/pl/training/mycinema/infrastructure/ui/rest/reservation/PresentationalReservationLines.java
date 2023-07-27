@@ -7,7 +7,7 @@ import pl.training.mycinema.domain.reservation.model.Seat;
 @Value
 public class PresentationalReservationLines {
 
-	Seat seat;
+	PresentationalSeat seat;
 
 	DiscountType discountType;
 }

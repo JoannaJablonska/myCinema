@@ -3,7 +3,6 @@ package pl.training.mycinema.application.inputs.queries;
 import java.util.Optional;
 
 import lombok.RequiredArgsConstructor;
-import lombok.Value;
 import pl.training.mycinema.application.reservation.ReservationApplicationService;
 import pl.training.mycinema.domain.reservation.model.Reservation;
 

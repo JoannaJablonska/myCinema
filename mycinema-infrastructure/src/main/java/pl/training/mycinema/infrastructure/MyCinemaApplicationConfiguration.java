@@ -5,7 +5,6 @@ import org.springframework.context.annotation.Configuration;
 
 import pl.training.mycinema.application.inputs.commands.ReserveSeatsCommandHandler;
 import pl.training.mycinema.application.inputs.queries.GetMovieCatalogQueryHandler;
-import pl.training.mycinema.application.inputs.queries.GetReservationQuery;
 import pl.training.mycinema.application.inputs.queries.GetReservationQueryHandler;
 import pl.training.mycinema.application.movie.MovieApplicationService;
 import pl.training.mycinema.application.reservation.ReservationApplicationService;
