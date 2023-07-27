@@ -55,12 +55,12 @@ public class DatabaseInitializer implements ApplicationRunner {
 		final var movies = asList(bladeRunner, oppenheimer);
 
 		final List<Seat> seatsForBladeRunner = asList(
-				Seat.builder().id(UUID.randomUUID().toString()).rowNo(1).columnNo(1).hallNo(1).build(),
-				Seat.builder().id(UUID.randomUUID().toString()).rowNo(1).columnNo(2).hallNo(1).build(),
-				Seat.builder().id(UUID.randomUUID().toString()).rowNo(1).columnNo(3).hallNo(1).build(),
-				Seat.builder().id(UUID.randomUUID().toString()).rowNo(2).columnNo(1).hallNo(1).build(),
-				Seat.builder().id(UUID.randomUUID().toString()).rowNo(2).columnNo(2).hallNo(1).build(),
-				Seat.builder().id(UUID.randomUUID().toString()).rowNo(2).columnNo(3).hallNo(1).build()
+				Seat.builder().id(UUID.randomUUID().toString()).rowNo(1).columnNo(1).hallNo(1).isAvailable(true).build(),
+				Seat.builder().id(UUID.randomUUID().toString()).rowNo(1).columnNo(2).hallNo(1).isAvailable(true).build(),
+				Seat.builder().id(UUID.randomUUID().toString()).rowNo(1).columnNo(3).hallNo(1).isAvailable(true).build(),
+				Seat.builder().id(UUID.randomUUID().toString()).rowNo(2).columnNo(1).hallNo(1).isAvailable(true).build(),
+				Seat.builder().id(UUID.randomUUID().toString()).rowNo(2).columnNo(2).hallNo(1).isAvailable(true).build(),
+				Seat.builder().id(UUID.randomUUID().toString()).rowNo(2).columnNo(3).hallNo(1).isAvailable(true).build()
 		);
 
 		final var screenings = asList(
@@ -75,6 +75,6 @@ public class DatabaseInitializer implements ApplicationRunner {
 		movieRepository.saveAll(movieEntityMapper.toEntities(movies));
 		//		seatRepository.saveAll(seatEntityMapper.toEntities(seatsForBladeRunner));
 		screeningRepository.saveAll(screeningEntityMapper.toEntities(screenings));
-    }
+	}
 
 }

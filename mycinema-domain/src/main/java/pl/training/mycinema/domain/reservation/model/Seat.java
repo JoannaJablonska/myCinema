@@ -1,21 +1,26 @@
 package pl.training.mycinema.domain.reservation.model;
 
-import java.util.UUID;
-
+import lombok.AllArgsConstructor;
 import lombok.Builder;
-import lombok.Value;
+import lombok.Data;
+import lombok.EqualsAndHashCode;
+import lombok.Getter;
+import lombok.Setter;
+import lombok.ToString;
 
-@Value
+@Data
 @Builder
+@AllArgsConstructor
 public class Seat {
 
-	String id;
+	private String id;
 
-	int rowNo;
+	private int rowNo;
 
-	int columnNo;
+	private int columnNo;
 
-	int hallNo;
+	private int hallNo;
 
-	boolean isAvailable = true;
+//	@Setter
+	private boolean isAvailable;
 }

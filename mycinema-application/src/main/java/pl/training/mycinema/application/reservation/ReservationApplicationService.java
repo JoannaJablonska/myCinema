@@ -45,13 +45,15 @@ public class ReservationApplicationService {
 
 		for (final ReservationLine line : command.getReservationLines()) {
 			final Optional<Seat> requestedSeat = findRequestedSeat(line.getSeat(), foundScreening.get().getSeats());
-			requestedSeat.ifPresent(seat -> processedReservationLines.add(ReservationLine.builder()
-					.id(UUID.randomUUID().toString())
-					.seat(seat)
-					.discountType(line.getDiscountType())
-					.build()));
+			if (requestedSeat.isPresent()) {
+				processedReservationLines.add(ReservationLine.builder()
+						.id(UUID.randomUUID().toString())
+						.seat(requestedSeat.get())
+						.discountType(line.getDiscountType())
+						.build());
+				requestedSeat.get().setAvailable(false);
+			}
 		}
-
 
 		final Reservation reservation = Reservation.builder()
 				.id(UUID.randomUUID().toString())
