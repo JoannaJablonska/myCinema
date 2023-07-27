@@ -11,6 +11,6 @@ public class GetSeatsQueryHandler {
     private final SeatApplicationService seatApplicationService;
 
     public List<Seat> handle(final GetSeatsQuery getSeatsQuery) {
-        return seatApplicationService.getAvailableSeatsById(getSeatsQuery.getId());
+        return seatApplicationService.getAvailableSeatsByScreeningId(getSeatsQuery.getId());
     }
 }

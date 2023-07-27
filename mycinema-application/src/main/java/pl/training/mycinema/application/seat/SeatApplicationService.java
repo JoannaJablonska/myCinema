@@ -10,7 +10,7 @@ import java.util.List;
 public class SeatApplicationService {
     private final ScreeningRepository screeningRepository;
 
-    public List<Seat> getAvailableSeatsById(String id) {
+    public List<Seat> getAvailableSeatsByScreeningId(String id) {
         return screeningRepository.findAvailableSeatsByScreeningId(id);
     }
 }
