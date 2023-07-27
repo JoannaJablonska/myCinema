@@ -5,6 +5,7 @@ import static java.util.Arrays.asList;
 import java.time.Duration;
 import java.time.LocalDateTime;
 import java.util.List;
+import java.util.UUID;
 
 import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.ApplicationRunner;
@@ -19,6 +20,7 @@ import pl.training.mycinema.infrastructure.persistence.movie.JpaMovieRepository;
 import pl.training.mycinema.infrastructure.persistence.movie.JpaScreeningRepository;
 import pl.training.mycinema.infrastructure.persistence.movie.JpaSeatRepository;
 import pl.training.mycinema.infrastructure.persistence.movie.MovieEntityMapper;
+import pl.training.mycinema.infrastructure.persistence.movie.ScreeningEntity;
 import pl.training.mycinema.infrastructure.persistence.movie.ScreeningEntityMapper;
 
 @Transactional
@@ -53,16 +55,17 @@ public class DatabaseInitializer implements ApplicationRunner {
 		final var movies = asList(bladeRunner, oppenheimer);
 
 		final List<Seat> seatsForBladeRunner = asList(
-				Seat.builder().rowNo(1).columnNo(1).hallNo(1).build(),
-				Seat.builder().rowNo(1).columnNo(2).hallNo(1).build(),
-				Seat.builder().rowNo(1).columnNo(3).hallNo(1).build(),
-				Seat.builder().rowNo(2).columnNo(1).hallNo(1).build(),
-				Seat.builder().rowNo(2).columnNo(2).hallNo(1).build(),
-				Seat.builder().rowNo(2).columnNo(3).hallNo(1).build()
+				Seat.builder().id(UUID.randomUUID().toString()).rowNo(1).columnNo(1).hallNo(1).build(),
+				Seat.builder().id(UUID.randomUUID().toString()).rowNo(1).columnNo(2).hallNo(1).build(),
+				Seat.builder().id(UUID.randomUUID().toString()).rowNo(1).columnNo(3).hallNo(1).build(),
+				Seat.builder().id(UUID.randomUUID().toString()).rowNo(2).columnNo(1).hallNo(1).build(),
+				Seat.builder().id(UUID.randomUUID().toString()).rowNo(2).columnNo(2).hallNo(1).build(),
+				Seat.builder().id(UUID.randomUUID().toString()).rowNo(2).columnNo(3).hallNo(1).build()
 		);
 
 		final var screenings = asList(
 				Screening.builder()
+						.id(UUID.randomUUID().toString())
 						.movie(bladeRunner)
 						.time(LocalDateTime.of(2023, 7, 30, 12, 30, 0))
 						.seats(seatsForBladeRunner)
@@ -70,7 +73,7 @@ public class DatabaseInitializer implements ApplicationRunner {
 		);
 
 		movieRepository.saveAll(movieEntityMapper.toEntities(movies));
-//		seatRepository.saveAll(seatEntityMapper.toEntities(seatsForBladeRunner));
+		//		seatRepository.saveAll(seatEntityMapper.toEntities(seatsForBladeRunner));
 		screeningRepository.saveAll(screeningEntityMapper.toEntities(screenings));
     }
 

@@ -1,9 +1,10 @@
 package pl.training.mycinema.infrastructure.persistence.reservation;
 
 import java.util.List;
-import java.util.UUID;
 
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
+import jakarta.persistence.FetchType;
 import jakarta.persistence.Id;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToMany;
@@ -17,12 +18,12 @@ import pl.training.mycinema.infrastructure.persistence.movie.ScreeningEntity;
 public class ReservationEntity {
 
 	@Id
-	String id = UUID.randomUUID().toString();
+	String id;
 
 	@ManyToOne
 	ScreeningEntity screening;
 
-	@OneToMany
+	@OneToMany(cascade = CascadeType.ALL)
 	List<ReservationLinesEntity> reservationLines;
 
 	boolean isPaid = false;

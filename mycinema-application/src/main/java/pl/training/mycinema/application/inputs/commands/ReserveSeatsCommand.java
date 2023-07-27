@@ -7,7 +7,7 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-import pl.training.mycinema.domain.reservation.model.ReservationLines;
+import pl.training.mycinema.domain.reservation.model.ReservationLine;
 
 @AllArgsConstructor
 @NoArgsConstructor
@@ -19,5 +19,5 @@ public class ReserveSeatsCommand {
 
 	LocalDateTime time;
 
-	List<ReservationLines> reservationLines;
+	List<ReservationLine> reservationLines;
 }

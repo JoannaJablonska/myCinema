@@ -1,6 +1,7 @@
 package pl.training.mycinema.domain.reservation.model;
 
 import java.util.List;
+import java.util.UUID;
 
 import lombok.Builder;
 import lombok.Value;
@@ -14,7 +15,7 @@ public class Reservation {
 
 	Screening screening;
 
-	List<ReservationLines> reservationLines;
+	List<ReservationLine> reservationLines;
 
 	boolean isPaid = false;
 }

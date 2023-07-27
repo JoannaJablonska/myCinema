@@ -1,5 +1,7 @@
 package pl.training.mycinema.domain.reservation.model;
 
+import java.util.UUID;
+
 import lombok.Builder;
 import lombok.Value;
 

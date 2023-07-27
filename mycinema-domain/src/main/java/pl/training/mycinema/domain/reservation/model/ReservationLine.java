@@ -1,16 +1,18 @@
 package pl.training.mycinema.domain.reservation.model;
 
+import java.util.UUID;
+
 import lombok.Builder;
 import lombok.Value;
 
 @Value
 @Builder
-public class ReservationLines {
+public class ReservationLine {
 
 	String id;
 
 	Seat seat;
 
-	DiscountType discountType = DiscountType.NORMAL;
+	DiscountType discountType;
 }
 

@@ -22,8 +22,6 @@ public class JpaScreeningRepositoryAdapter implements ScreeningRepository {
 
 	private final ScreeningEntityMapper screeningEntityMapper;
 
-	//50e8f62b-2a75-45ec-9e55-47a6ac4c3c3f
-	//05ce7267-c489-468f-b6f8-68fd3efd7a6e
 	@Override
 	public Optional<Screening> findByMovieAndTime(final Movie movie, final LocalDateTime time) {
 		return screeningRepository.findByTimeAndMovieName(time, movie.getName())

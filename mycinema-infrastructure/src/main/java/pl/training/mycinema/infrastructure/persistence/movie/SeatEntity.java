@@ -1,7 +1,5 @@
 package pl.training.mycinema.infrastructure.persistence.movie;
 
-import java.util.UUID;
-
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 import lombok.Getter;
@@ -13,7 +11,7 @@ import lombok.Setter;
 public class SeatEntity {
 
 	@Id
-	String id = UUID.randomUUID().toString();
+	String id;
 
 	int rowNo;
 

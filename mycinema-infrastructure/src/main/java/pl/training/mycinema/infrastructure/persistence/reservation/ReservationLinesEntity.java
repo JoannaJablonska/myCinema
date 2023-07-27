@@ -1,7 +1,5 @@
 package pl.training.mycinema.infrastructure.persistence.reservation;
 
-import java.util.UUID;
-
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 import jakarta.persistence.OneToOne;
@@ -16,7 +14,7 @@ import pl.training.mycinema.infrastructure.persistence.movie.SeatEntity;
 public class ReservationLinesEntity {
 
 	@Id
-	String id = UUID.randomUUID().toString();
+	String id;
 
 	@OneToOne
 	SeatEntity seat;

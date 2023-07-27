@@ -15,3 +15,4 @@ public interface ScreeningEntityMapper {
 
 	List<ScreeningEntity> toEntities(List<Screening> screenings);
 }
+
