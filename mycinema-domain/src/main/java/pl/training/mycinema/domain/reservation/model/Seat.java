@@ -1,21 +1,17 @@
 package pl.training.mycinema.domain.reservation.model;
 
-import lombok.*;
+import lombok.Builder;
+import lombok.Value;
 
-@NoArgsConstructor
-@Getter
-@Setter
+@Value
+@Builder
 public class Seat {
+
+	String id;
 
 	int rowNo;
 
 	int columnNo;
-
-	public Seat(int rowNo, int columnNo, int hallNo) {
-		this.rowNo = rowNo;
-		this.columnNo = columnNo;
-		this.hallNo = hallNo;
-	}
 
 	int hallNo;
 

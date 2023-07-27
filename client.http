@@ -11,12 +11,14 @@ Accept: application/json
 {
   "movieName": "Blade Runner",
   "time": "2023-07-30T12:30:00.000Z",
-  "reservationLines": [{
-    "seat": {
-      "rowNo": 1,
-      "columnNo": 1,
-      "hallNo": 1,
-      "isAvailable": true
-    },
-    "discountType": "NORMAL"}]
+  "reservationLines": [
+    {
+      "seat": {
+        "rowNo": 1,
+        "columnNo": 1,
+        "hallNo": 1
+      },
+      "discountType": "NORMAL"
+    }
+  ]
 }

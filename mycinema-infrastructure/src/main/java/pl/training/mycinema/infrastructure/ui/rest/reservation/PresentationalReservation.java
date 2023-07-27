@@ -1,15 +1,14 @@
 package pl.training.mycinema.infrastructure.ui.rest.reservation;
 
+import java.util.List;
+
 import lombok.Value;
 import pl.training.mycinema.domain.movie.model.Screening;
-import pl.training.mycinema.domain.reservation.model.ReservationLines;
-
-import java.util.List;
 
 @Value
 public class PresentationalReservation {
 
 	Screening screening;
 
-	List<ReservationLines> reservationLines;
+	List<PresentationalReservationLines> reservationLines;
 }

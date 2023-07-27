@@ -36,11 +36,14 @@ public class ReservationApplicationService {
 			throw new RuntimeException("Seats are not available");
 		}
 
-		final Reservation reservation = new Reservation(foundScreening.get(), command.getReservationLines());
+		final Reservation reservation = Reservation.builder()
+				.screening(foundScreening.get())
+				.reservationLines(command.getReservationLines())
+				.build();
 
 		reservationRepository.save(reservation);
 
-		return reservation;
+		return null;
 	}
 
 	private static boolean areSeatsAvailable(final ReserveSeatsCommand command, final Screening foundScreening) {

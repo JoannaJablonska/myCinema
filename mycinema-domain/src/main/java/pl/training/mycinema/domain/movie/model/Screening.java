@@ -3,11 +3,15 @@ package pl.training.mycinema.domain.movie.model;
 import java.time.LocalDateTime;
 import java.util.List;
 
+import lombok.Builder;
 import lombok.Value;
 import pl.training.mycinema.domain.reservation.model.Seat;
 
 @Value
+@Builder
 public class Screening {
+
+	String id;
 
 	Movie movie;
 

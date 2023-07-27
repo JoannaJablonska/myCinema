@@ -28,6 +28,7 @@ public class JpaMovieRepositoryAdapter implements MovieRepository {
 
 	@Override
 	public Optional<Movie> findByName(final String name) {
-		return Optional.ofNullable(mapper.toMovie(movieRepository.findById(name)));
+		return movieRepository.findByName(name)
+				.map(mapper::toMovie);
 	}
 }

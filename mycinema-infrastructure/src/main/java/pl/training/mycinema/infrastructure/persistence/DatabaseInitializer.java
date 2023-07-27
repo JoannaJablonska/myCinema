@@ -40,29 +40,37 @@ public class DatabaseInitializer implements ApplicationRunner {
 
 	@Override
     public void run(ApplicationArguments args) {
-		final Movie bladeRunner = new Movie("Blade Runner", Duration.ofHours(1).plusMinutes(30).plusSeconds(30));
-		final Movie oppenheimer = new Movie("Oppenheimer", Duration.ofHours(3));
+		final Movie bladeRunner = Movie.builder()
+				.name("Blade Runner")
+				.duration(Duration.ofHours(1).plusMinutes(30).plusSeconds(30))
+				.build();
+
+		final Movie oppenheimer = Movie.builder()
+				.name("Oppenheimer")
+				.duration(Duration.ofHours(3))
+				.build();
+
 		final var movies = asList(bladeRunner, oppenheimer);
 
 		final List<Seat> seatsForBladeRunner = asList(
-				new Seat(1, 1, 1),
-				new Seat(1, 2, 1),
-				new Seat(1, 3, 1),
-				new Seat(2, 1, 1),
-				new Seat(2, 2, 1),
-				new Seat(2, 3, 1)
+				Seat.builder().rowNo(1).columnNo(1).hallNo(1).build(),
+				Seat.builder().rowNo(1).columnNo(2).hallNo(1).build(),
+				Seat.builder().rowNo(1).columnNo(3).hallNo(1).build(),
+				Seat.builder().rowNo(2).columnNo(1).hallNo(1).build(),
+				Seat.builder().rowNo(2).columnNo(2).hallNo(1).build(),
+				Seat.builder().rowNo(2).columnNo(3).hallNo(1).build()
 		);
 
 		final var screenings = asList(
-				new Screening(
-						bladeRunner,
-						LocalDateTime.of(2023, 7, 30, 12, 30, 0),
-						seatsForBladeRunner
-				)
+				Screening.builder()
+						.movie(bladeRunner)
+						.time(LocalDateTime.of(2023, 7, 30, 12, 30, 0))
+						.seats(seatsForBladeRunner)
+						.build()
 		);
 
 		movieRepository.saveAll(movieEntityMapper.toEntities(movies));
-		seatRepository.saveAll(seatEntityMapper.toEntities(seatsForBladeRunner));
+//		seatRepository.saveAll(seatEntityMapper.toEntities(seatsForBladeRunner));
 		screeningRepository.saveAll(screeningEntityMapper.toEntities(screenings));
     }
 
