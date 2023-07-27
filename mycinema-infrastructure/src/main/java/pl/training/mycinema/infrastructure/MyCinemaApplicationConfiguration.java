@@ -1,5 +1,6 @@
 package pl.training.mycinema.infrastructure;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
@@ -8,8 +9,10 @@ import pl.training.mycinema.application.inputs.commands.PayForReservationCommand
 import pl.training.mycinema.application.inputs.commands.ReserveSeatsCommandHandler;
 import pl.training.mycinema.application.inputs.queries.GetMovieCatalogQueryHandler;
 import pl.training.mycinema.application.inputs.queries.GetReservationQueryHandler;
+import pl.training.mycinema.application.inputs.queries.GetScreeningsQueryHandler;
 import pl.training.mycinema.application.movie.MovieApplicationService;
 import pl.training.mycinema.application.reservation.ReservationApplicationService;
+import pl.training.mycinema.application.screening.ScreeningApplicationService;
 import pl.training.mycinema.domain.movie.repositories.MovieRepository;
 import pl.training.mycinema.domain.movie.repositories.ScreeningRepository;
 import pl.training.mycinema.domain.reservation.repositories.ReservationRepository;
@@ -20,6 +23,11 @@ public class MyCinemaApplicationConfiguration {
 	@Bean
 	public MovieApplicationService movieApplicationService(final MovieRepository repository) {
 		return new MovieApplicationService(repository);
+	}
+
+	@Bean
+	public ScreeningApplicationService screeningApplicationService(final ScreeningRepository repository) {
+		return new ScreeningApplicationService(repository);
 	}
 
 	@Bean
@@ -51,5 +59,10 @@ public class MyCinemaApplicationConfiguration {
 	@Bean
 	public CancelReservationCommandHandler cancelReservationCommandHandler(final ReservationApplicationService reservationApplicationService) {
 		return new CancelReservationCommandHandler(reservationApplicationService);
+	}
+
+	@Bean
+	public GetScreeningsQueryHandler getScreeningsQueryHandler(final ScreeningApplicationService screeningApplicationService) {
+		return new GetScreeningsQueryHandler(screeningApplicationService);
 	}
 }

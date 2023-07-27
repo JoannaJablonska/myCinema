@@ -35,10 +35,6 @@ public class DatabaseInitializer implements ApplicationRunner {
 
 	private final ScreeningEntityMapper screeningEntityMapper;
 
-	private final JpaSeatRepository seatRepository;
-
-	private final SeatEntityMapper seatEntityMapper;
-
 	@Override
     public void run(ApplicationArguments args) {
 		final Movie bladeRunner = Movie.builder()
@@ -53,7 +49,7 @@ public class DatabaseInitializer implements ApplicationRunner {
 
 		final var movies = asList(bladeRunner, oppenheimer);
 
-		final List<Seat> seatsForBladeRunner = asList(
+		final List<Seat> seatsForBladeRunnerEarlyScreening = asList(
 				Seat.builder().id(UUID.randomUUID().toString()).rowNo(1).columnNo(1).hallNo(1).available(true).price(25.00).build(),
 				Seat.builder().id(UUID.randomUUID().toString()).rowNo(1).columnNo(2).hallNo(1).available(true).price(25.00).build(),
 				Seat.builder().id(UUID.randomUUID().toString()).rowNo(1).columnNo(3).hallNo(1).available(true).price(25.00).build(),
@@ -62,17 +58,31 @@ public class DatabaseInitializer implements ApplicationRunner {
 				Seat.builder().id(UUID.randomUUID().toString()).rowNo(2).columnNo(3).hallNo(1).available(true).price(50.00).build()
 		);
 
+		final List<Seat> seatsForBladeRunnerLateScreening = asList(
+				Seat.builder().id(UUID.randomUUID().toString()).rowNo(1).columnNo(1).hallNo(1).available(true).price(27.00).build(),
+				Seat.builder().id(UUID.randomUUID().toString()).rowNo(1).columnNo(2).hallNo(1).available(true).price(27.00).build(),
+				Seat.builder().id(UUID.randomUUID().toString()).rowNo(1).columnNo(3).hallNo(1).available(true).price(27.00).build(),
+				Seat.builder().id(UUID.randomUUID().toString()).rowNo(2).columnNo(1).hallNo(1).available(true).price(27.00).build(),
+				Seat.builder().id(UUID.randomUUID().toString()).rowNo(2).columnNo(2).hallNo(1).available(true).price(27.00).build(),
+				Seat.builder().id(UUID.randomUUID().toString()).rowNo(2).columnNo(3).hallNo(1).available(true).price(57.00).build()
+		);
+
 		final var screenings = asList(
 				Screening.builder()
 						.id(UUID.randomUUID().toString())
 						.movie(bladeRunner)
 						.time(LocalDateTime.of(2023, 7, 30, 12, 30, 0))
-						.seats(seatsForBladeRunner)
+						.seats(seatsForBladeRunnerEarlyScreening)
+						.build(),
+				Screening.builder()
+						.id(UUID.randomUUID().toString()+1)
+						.movie(bladeRunner)
+						.time(LocalDateTime.of(2023, 7, 30, 17, 35, 0))
+						.seats(seatsForBladeRunnerLateScreening)
 						.build()
 		);
 
 		movieRepository.saveAll(movieEntityMapper.toEntities(movies));
-		//		seatRepository.saveAll(seatEntityMapper.toEntities(seatsForBladeRunner));
 		screeningRepository.saveAll(screeningEntityMapper.toEntities(screenings));
 	}
 

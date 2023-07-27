@@ -1,7 +1,9 @@
 package pl.training.mycinema.infrastructure.persistence.movie;
 
 import java.time.LocalDateTime;
+import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 import org.springframework.context.annotation.Primary;
 import org.springframework.stereotype.Repository;
@@ -26,5 +28,13 @@ public class JpaScreeningRepositoryAdapter implements ScreeningRepository {
 	public Optional<Screening> findByMovieAndTime(final Movie movie, final LocalDateTime time) {
 		return screeningRepository.findByTimeAndMovieName(time, movie.getName())
 				.map(screeningEntityMapper::toScreening);
+	}
+
+	@Override
+	public List<Screening> findByMovie(String movieName) {
+		return screeningRepository.findByMovieName(movieName)
+				.stream()
+				.map(screeningEntityMapper::toScreening)
+				.collect(Collectors.toList());
 	}
 }
