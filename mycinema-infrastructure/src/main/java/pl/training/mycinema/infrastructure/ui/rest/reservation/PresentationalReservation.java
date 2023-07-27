@@ -13,5 +13,7 @@ public class PresentationalReservation {
 
 	List<PresentationalReservationLines> reservationLines;
 
+	boolean paid;
+
 	double totalPrice;
 }

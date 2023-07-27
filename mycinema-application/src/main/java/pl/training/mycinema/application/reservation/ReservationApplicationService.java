@@ -31,7 +31,6 @@ public class ReservationApplicationService {
 			throw new RuntimeException("Movie not found");
 		}
 
-		//e504ec2f-2ec0-4c84-8db4-53929ffa43dd
 		final Optional<Screening> foundScreening = screeningRepository.findByMovieAndTime(foundMovie.get(), command.getTime());
 		if (foundScreening.isEmpty()) {
 			throw new RuntimeException("Screening not found");
@@ -70,6 +69,15 @@ public class ReservationApplicationService {
 
 	public Optional<Reservation> getReservationById(final String id) {
 		return reservationRepository.getById(id);
+	}
+
+	public void payForReservation(final String id) {
+		final Optional<Reservation> reservation = reservationRepository.getById(id);
+		if (reservation.isEmpty()) {
+			throw new RuntimeException(String.format("Reservation with id %s was not found", id));
+		}
+		reservation.get().payForReservation();
+		reservationRepository.save(reservation.get());
 	}
 
 	private Optional<Seat> findRequestedSeat(final Seat seat, final List<Seat> seats) {

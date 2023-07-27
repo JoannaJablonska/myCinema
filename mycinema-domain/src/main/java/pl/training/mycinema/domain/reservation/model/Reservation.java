@@ -20,7 +20,7 @@ public class Reservation {
 
 	List<ReservationLine> reservationLines;
 
-	boolean isPaid = false;
+	boolean paid = false;
 
 	double totalPrice;
 
@@ -32,5 +32,9 @@ public class Reservation {
 
 	private double calculateLinePrice(final ReservationLine line) {
 		return line.getDiscountType().getDiscountPercentage() * line.getSeat().getPrice() / 100.00;
+	}
+
+	public void payForReservation() {
+		paid = true;
 	}
 }

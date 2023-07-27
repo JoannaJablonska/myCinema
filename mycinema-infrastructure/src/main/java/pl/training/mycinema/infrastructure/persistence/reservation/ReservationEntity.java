@@ -26,4 +26,6 @@ public class ReservationEntity {
 	List<ReservationLinesEntity> reservationLines;
 
 	boolean isPaid = false;
+
+	double totalPrice;
 }
