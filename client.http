@@ -22,3 +22,9 @@ Accept: application/json
     }
   ]
 }
+
+###
+
+GET http://localhost:8080/reservation/f38fe94a-b51c-4e2d-998b-1c33104ce100
+Content-Type: application/json
+Accept: application/json

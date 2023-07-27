@@ -8,7 +8,7 @@ import pl.training.mycinema.domain.movie.model.Screening;
 @Value
 public class PresentationalReservation {
 
-	Screening screening;
+	PresentationalScreening screening;
 
 	List<PresentationalReservationLines> reservationLines;
 }

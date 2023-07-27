@@ -1,5 +1,7 @@
 package pl.training.mycinema.infrastructure.persistence.reservation;
 
+import java.util.Optional;
+
 import org.springframework.context.annotation.Primary;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
@@ -22,5 +24,11 @@ public class JpaReservationRepositoryAdapter implements ReservationRepository {
 	public void save(final Reservation reservation) {
 		final ReservationEntity entity = mapper.toEntity(reservation);
 		reservationRepository.save(entity);
+	}
+
+	@Override
+	public Optional<Reservation> getById(final String id) {
+		return reservationRepository.findById(id)
+				.map(mapper::toReservation);
 	}
 }

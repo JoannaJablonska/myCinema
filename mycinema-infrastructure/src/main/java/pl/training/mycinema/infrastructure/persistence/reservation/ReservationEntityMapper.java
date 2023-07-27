@@ -10,4 +10,6 @@ import pl.training.mycinema.domain.reservation.model.Reservation;
 public interface ReservationEntityMapper {
 
 	ReservationEntity toEntity(final Reservation reservation);
+
+	Reservation toReservation(ReservationEntity reservationEntity);
 }

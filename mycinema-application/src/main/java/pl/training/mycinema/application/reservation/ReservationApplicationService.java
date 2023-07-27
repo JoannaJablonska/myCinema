@@ -64,6 +64,10 @@ public class ReservationApplicationService {
 		return null;
 	}
 
+	public Optional<Reservation> getReservationById(final String id) {
+		return reservationRepository.getById(id);
+	}
+
 	private Optional<Seat> findRequestedSeat(final Seat seat, final List<Seat> seats) {
 		return seats.stream()
 				.filter(currentSeat -> isSameSeat(seat, currentSeat))

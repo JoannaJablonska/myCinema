@@ -5,6 +5,8 @@ import org.springframework.context.annotation.Configuration;
 
 import pl.training.mycinema.application.inputs.commands.ReserveSeatsCommandHandler;
 import pl.training.mycinema.application.inputs.queries.GetMovieCatalogQueryHandler;
+import pl.training.mycinema.application.inputs.queries.GetReservationQuery;
+import pl.training.mycinema.application.inputs.queries.GetReservationQueryHandler;
 import pl.training.mycinema.application.movie.MovieApplicationService;
 import pl.training.mycinema.application.reservation.ReservationApplicationService;
 import pl.training.mycinema.domain.movie.repositories.MovieRepository;
@@ -33,5 +35,10 @@ public class MyCinemaApplicationConfiguration {
 	@Bean
 	public ReserveSeatsCommandHandler reserveSeatsCommandHandler(final ReservationApplicationService reservationApplicationService) {
 		return new ReserveSeatsCommandHandler(reservationApplicationService);
+	}
+
+	@Bean
+	public GetReservationQueryHandler getReservationQueryHandler(final ReservationApplicationService reservationApplicationService) {
+		return new GetReservationQueryHandler(reservationApplicationService);
 	}
 }
