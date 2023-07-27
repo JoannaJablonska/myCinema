@@ -10,7 +10,6 @@ public class MyCinemaApplication {
 		SpringApplication.run(MyCinemaApplication.class, args);
 	}
 
-	//TODO GetScreenings
 	//TODO GetSeats (for the selected screening) e.g. byId
 	//TODO Business Rules
 }

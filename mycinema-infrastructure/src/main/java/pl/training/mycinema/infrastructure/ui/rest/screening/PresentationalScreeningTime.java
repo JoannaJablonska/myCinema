@@ -6,5 +6,6 @@ import java.time.LocalDateTime;
 
 @Value
 public class PresentationalScreeningTime {
+	String id;
 	LocalDateTime time;
 }
