@@ -3,6 +3,7 @@ package pl.training.mycinema.infrastructure;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
+import pl.training.mycinema.application.inputs.commands.CancelReservationCommandHandler;
 import pl.training.mycinema.application.inputs.commands.PayForReservationCommandHandler;
 import pl.training.mycinema.application.inputs.commands.ReserveSeatsCommandHandler;
 import pl.training.mycinema.application.inputs.queries.GetMovieCatalogQueryHandler;
@@ -45,5 +46,10 @@ public class MyCinemaApplicationConfiguration {
 	@Bean
 	public PayForReservationCommandHandler payForReservationCommandHandler(final ReservationApplicationService reservationApplicationService) {
 		return new PayForReservationCommandHandler(reservationApplicationService);
+	}
+
+	@Bean
+	public CancelReservationCommandHandler cancelReservationCommandHandler(final ReservationApplicationService reservationApplicationService) {
+		return new CancelReservationCommandHandler(reservationApplicationService);
 	}
 }

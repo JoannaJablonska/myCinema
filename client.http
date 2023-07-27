@@ -33,12 +33,18 @@ Accept: application/json
 
 ###
 
-GET http://localhost:8080/reservation/baf84260-95ae-4306-b26e-71250c823099
+GET http://localhost:8080/reservation/0e9d791d-f80a-432b-8482-b3f9255456b1
 Content-Type: application/json
 Accept: application/json
 
 ###
 
 PUT http://localhost:8080/reservation/baf84260-95ae-4306-b26e-71250c823099/pay
+Content-Type: application/json
+Accept: application/json
+
+###
+
+PUT http://localhost:8080/reservation/0724988b-cac9-4995-b4e1-265fa06339c7/cancel
 Content-Type: application/json
 Accept: application/json

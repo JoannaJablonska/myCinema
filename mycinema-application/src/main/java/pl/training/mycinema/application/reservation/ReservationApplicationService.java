@@ -58,6 +58,8 @@ public class ReservationApplicationService {
 				.id(UUID.randomUUID().toString())
 				.screening(foundScreening.get())
 				.reservationLines(processedReservationLines)
+				.paid(false)
+				.active(true)
 				.build();
 
 		reservation.calculateTotalPrice();
@@ -77,6 +79,15 @@ public class ReservationApplicationService {
 			throw new RuntimeException(String.format("Reservation with id %s was not found", id));
 		}
 		reservation.get().payForReservation();
+		reservationRepository.save(reservation.get());
+	}
+
+	public void cancelReservation(final String id) {
+		final Optional<Reservation> reservation = reservationRepository.getById(id);
+		if (reservation.isEmpty()) {
+			throw new RuntimeException(String.format("Reservation with id %s was not found", id));
+		}
+		reservation.get().cancelReservation();
 		reservationRepository.save(reservation.get());
 	}
 

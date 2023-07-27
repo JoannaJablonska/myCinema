@@ -20,9 +20,11 @@ public class Reservation {
 
 	List<ReservationLine> reservationLines;
 
-	boolean paid = false;
+	boolean paid;
 
 	double totalPrice;
+
+	boolean active;
 
 	public void calculateTotalPrice() {
 		totalPrice = reservationLines.stream()
@@ -36,5 +38,21 @@ public class Reservation {
 
 	public void payForReservation() {
 		paid = true;
+	}
+
+	public void cancelReservation() {
+		active = false;
+		reservationLines.forEach(line -> line.getSeat().setAvailable(true));
+		screening.getSeats().stream()
+				.filter(this::isSeatFromReservation)
+				.forEach(seat -> seat.setAvailable(true));
+	}
+
+	private boolean isSeatFromReservation(final Seat seat) {
+		return reservationLines.stream()
+				.map(ReservationLine::getSeat)
+				.anyMatch(currentSeat -> currentSeat.getRowNo() == seat.getRowNo()
+						&& currentSeat.getColumnNo() == seat.getColumnNo()
+						&& currentSeat.getHallNo() == seat.getHallNo());
 	}
 }

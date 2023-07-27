@@ -16,4 +16,6 @@ public class PresentationalReservation {
 	boolean paid;
 
 	double totalPrice;
+
+	boolean active;
 }

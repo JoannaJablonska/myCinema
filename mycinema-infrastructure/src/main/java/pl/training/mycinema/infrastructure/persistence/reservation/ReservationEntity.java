@@ -19,13 +19,15 @@ public class ReservationEntity {
 	@Id
 	String id;
 
-	@ManyToOne
+	@ManyToOne(cascade = CascadeType.ALL)
 	ScreeningEntity screening;
 
 	@OneToMany(cascade = CascadeType.ALL)
 	List<ReservationLinesEntity> reservationLines;
 
-	boolean isPaid = false;
+	boolean isPaid;
 
 	double totalPrice;
+
+	boolean active;
 }
