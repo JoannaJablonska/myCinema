@@ -2,7 +2,7 @@ package pl.training.mycinema.domain.reservation.model;
 
 public enum DiscountType {
 
-	CHILDREN,
+	CHILD,
 	SENIOR,
 	NORMAL
 }

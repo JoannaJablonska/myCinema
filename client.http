@@ -13,13 +13,20 @@ Accept: application/json
   "time": "2023-07-30T12:30:00.000Z",
   "reservationLines": [
     {
-
       "seat": {
         "rowNo": 1,
         "columnNo": 1,
         "hallNo": 1
       },
       "discountType": "NORMAL"
+    },
+    {
+      "seat": {
+        "rowNo": 1,
+        "columnNo": 3,
+        "hallNo": 1
+      },
+      "discountType": "CHILD"
     }
   ]
 }
