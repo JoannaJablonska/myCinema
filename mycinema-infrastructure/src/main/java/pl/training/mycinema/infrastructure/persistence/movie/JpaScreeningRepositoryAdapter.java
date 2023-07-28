@@ -16,7 +16,6 @@ import pl.training.mycinema.domain.movie.model.Movie;
 import pl.training.mycinema.domain.movie.model.Screening;
 import pl.training.mycinema.domain.movie.repositories.ScreeningRepository;
 import pl.training.mycinema.domain.reservation.model.Seat;
-import pl.training.mycinema.infrastructure.persistence.SeatEntityMapper;
 
 @Primary
 @Transactional

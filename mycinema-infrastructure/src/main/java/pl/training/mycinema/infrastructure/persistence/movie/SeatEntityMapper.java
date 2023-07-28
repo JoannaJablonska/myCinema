@@ -1,4 +1,4 @@
-package pl.training.mycinema.infrastructure.persistence;
+package pl.training.mycinema.infrastructure.persistence.movie;
 
 import static org.mapstruct.MappingConstants.ComponentModel.SPRING;
 

@@ -7,7 +7,6 @@ import java.util.List;
 import org.mapstruct.Mapper;
 
 import pl.training.mycinema.domain.movie.model.Screening;
-import pl.training.mycinema.infrastructure.persistence.SeatEntityMapper;
 
 @Mapper(componentModel = SPRING, uses = SeatEntityMapper.class)
 public interface ScreeningEntityMapper {
